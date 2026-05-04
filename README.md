@@ -97,3 +97,114 @@ discord_channel_exporter.py   ← script principal (seul fichier nécessaire)
 exports/                      ← dossier créé automatiquement à l'export
 README.md                     ← ce fichier
 ```
+
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+
+# Discord Channel Exporter
+
+Downloads all messages from a Discord channel into a JSON file,
+using your personal account (not a bot).
+
+---
+
+## Prerequisites
+
+### 1. Python
+Download and install Python from https://www.python.org/downloads/
+Check **"Add Python to PATH"** during installation.
+No additional modules needed (`pip install` is unnecessary).
+
+### 2. DiscordChatExporter CLI
+1. Go to https://github.com/Tyrrrz/DiscordChatExporter/releases
+2. Download **`DiscordChatExporter.Cli.zip`** (Windows x64)
+3. Extract the zip wherever you want (e.g. `C:\Tools\DCE\`)
+4. Note the path to `DiscordChatExporter.Cli.exe`
+
+---
+
+## Running the tool
+
+Double-click `discord_channel_exporter.py`
+or run in a terminal:
+```
+python discord_channel_exporter.py
+```
+
+---
+
+## Usage
+
+### Filling in the fields
+
+**DiscordChatExporter.Cli.exe**
+Click `…` and select the downloaded `DiscordChatExporter.Cli.exe` file.
+
+**Discord Token (personal account)**
+Your personal authentication token — see the section below on how to retrieve it.
+
+**Channel ID**
+The numeric identifier of the channel to export — see the section below.
+
+---
+
+## Retrieving your Discord token
+
+> ⚠️ Never share your token. It gives full access to your account.
+
+1. Open Discord in your **web browser** (not the app): https://discord.com/app
+2. Press **F12** to open the developer tools
+3. Go to the **Network** tab
+4. In the filter, type `messages`
+5. Click on any Discord channel
+6. A request appears in the list → click on it
+7. Go to **Headers** → look for the **`Authorization`** header
+8. Copy the value (starts with `MTk…` or similar) — that's your token
+
+---
+
+## Retrieving a Channel ID
+
+1. In Discord (app or browser), go to **Settings → Advanced**
+2. Enable **"Developer Mode"**
+3. Right-click on the desired channel
+4. Click **"Copy ID"**
+
+---
+
+## Downloading
+
+Once all 3 fields are filled in, click **Download**.
+Logs are displayed in real time in the black console.
+The JSON file is saved in the `exports/` folder (automatically created next to the script).
+
+### Stop button
+Stops the current download and saves whatever has already been retrieved.
+
+### Quit button
+Closes the application immediately (also stops the current download).
+
+---
+
+## Output file
+
+Format: `exports/ChannelName [ChannelID].json`
+Content: all messages from the channel with author, date, content, attachments.
+
+---
+
+## Project structure
+
+```
+discord_channel_exporter.py   ← main script (only file needed)
+exports/                      ← folder automatically created on export
+README.md                     ← this file
+```
